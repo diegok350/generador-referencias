@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Creador de referencias paycaster</ion-card-subtitle>
+            <ion-card-title>Generador</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="frmReferencia">
+              <ion-list>
+                <ion-list>
+                  <ion-item>
+                    <ion-select label="Tipo de operación" aria-label="operacion" placeholder="Selecciona" formControlName="operacionTipo">
+                      <ion-select-option value="1">CASH IN</ion-select-option>
+                      <ion-select-option value="2">CASH OUT</ion-select-option>
+                      <ion-select-option value="3">CASH PAYMENT</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Emisor:"  formControlName="emisor" placeholder="número de emisor"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Referencia:" formControlName="referencia" type="number" placeholder="00000000000000"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Digito verificador:" formControlName="digitoVerificador" type="number" placeholder="0"></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-list>
+            </form>
+          </ion-card-content>
+
+          <div class="ion-padding">
+            <ion-button (click)="generaRefencia()" expand="block" shape="round">
+              Generar referencia
+            </ion-button>
+          </div>
+
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content class="ion-text-center">
+           <ion-text color="primary">
+            <h1>{{referenciaCompleta}}</h1>
+           </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
